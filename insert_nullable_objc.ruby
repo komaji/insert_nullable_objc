@@ -29,7 +29,7 @@ def insert_nullable_type(line)
   line.split(',').map { |str|
     next str unless check_nullability(str)
     
-    nullable = ' _Nullable *'
+    nullable = '* _Nullable '
     nullable.lstrip! if str =~ /\s\*/
     str.gsub('*', nullable)
   }.join(',')
